@@ -1,0 +1,19 @@
+@charset "utf-8";
+.share{float: right;height: 30px;position: relative;}
+.share-icon{float: left;line-height: 30px;}
+.share-box{display: inline-block;margin-left: 10px;height: 30px;}
+.share-box a{display: inline-block;width: 26px;height: 26px;cursor: pointer;margin-top: 2px;}
+.gwds_weixin{background: url("../images/detail_share_wx.png") no-repeat center;}
+.gwds_tsina{background: url("../images/detail_share_wb.png") no-repeat center;margin-left: 5px;}
+.code_box{width: 250px;border: 1px solid #ccc;padding: 10px;border-radius: 8px;position: absolute;right: 0;bottom: 40px;z-index: 99999;background: #fff;}
+.code_box p{font-size: 12px;line-height: 20px;color: #999;}
+.code-box{display: block;width: 300px;position: absolute;background: #fff;top: 49px;right: 0;z-index: 99;border: 1px solid #EFEFEF;border-radius: 8px;padding-bottom: 10px}
+.code-box h5{text-align:center;}
+.code-box p.share_tit{text-align:center;margin:0 auto;font-size: 14px;}
+#div_div{margin: 15px auto;text-align: center;}
+#div_div canvas{width: 200px !important;height: 200px !important;}
+.weixin_close{text-align: right;}
+.weixin_close a{font: 30px/35px '';display: inline-block;}
+@media screen and (max-width:650px) {
+    .share{width: 100%;}
+}

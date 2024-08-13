@@ -1,0 +1,131 @@
+
+/* 锁定屏幕 */
+body.mdui-locked {
+  overflow: hidden;
+}
+/* 遮罩层 */
+.mdui-overlay {
+  position: fixed;
+  top: -5000px;
+  right: -5000px;
+  bottom: -5000px;
+  left: -5000px;
+  z-index: 2000;
+  visibility: hidden;
+  background: rgba(0, 0, 0, .4);
+  opacity: 0;
+  transition-duration: .3s;
+  transition-property: opacity, visibility;
+
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  will-change: opacity;
+}
+/* 显示遮罩层 */
+.mdui-overlay-show {
+  visibility: visible;
+  opacity: 1;
+}
+/* 取消 transition 过渡效果 */
+.mdui-no-transition {
+  transition-property: none !important;
+}
+
+/**
+ * =============================================================================
+ * ************   Drawer 抽屉栏导航   ************
+ * =============================================================================
+ */
+/* DOM 加载完后再添加 transition */
+body.mdui-loaded {
+  transition: padding .3s cubic-bezier(0, 0, .2, 1);
+}
+body.mdui-loaded .mdui-drawer {
+  transition: all .3s cubic-bezier(0, 0, .2, 1);
+}
+/* 抽屉栏外层，默认出现在左侧且隐藏 */
+.mdui-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5000;
+  width: 240px;
+  box-sizing: border-box;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  white-space: nowrap;
+
+  will-change: transform;
+}
+/* 出现在右侧的抽屉栏 */
+.mdui-drawer-right {
+  right: 0;
+  left: auto;
+}
+/* 手机平板上的样式 */
+@media (max-width: 1023px) {
+  .mdui-drawer {
+    /* 始终有背景和阴影 */
+    background-color: #fff;
+    box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12);
+    /* 默认隐藏 */
+    -webkit-transform: translateX(-250px);
+            transform: translateX(-250px);
+  }
+  .mdui-drawer-right {
+    /* 右侧 drawer 也默认隐藏 */
+    -webkit-transform: translateX(250px);
+            transform: translateX(250px);
+  }
+}
+/* 强制隐藏抽屉栏 */
+.mdui-drawer-close {
+  -webkit-transform: translateX(-250px);
+          transform: translateX(-250px);
+          box-shadow: none;
+}
+.mdui-drawer-close.mdui-drawer-right {
+  -webkit-transform: translateX(250px);
+          transform: translateX(250px);
+}
+/* 强制显示抽屉栏 */
+.mdui-drawer-open {
+  -webkit-transform: translateX(0) !important;
+          transform: translateX(0) !important;
+}
+/* PC 上的样式 */
+@media (min-width: 1024px) {
+  /* 使 body 获得 padding-left 或 padding-right，避免被抽屉栏覆盖住页面 */
+  body.mdui-drawer-body-left {
+    padding-left: 240px;
+  }
+  body.mdui-drawer-body-right {
+    padding-right: 240px;
+  }
+  /* PC 上默认有上边距 */
+  .mdui-appbar-with-toolbar .mdui-drawer {
+    top: 64px;
+  }
+  .mdui-appbar-with-tab .mdui-drawer {
+    top: 48px;
+  }
+  .mdui-appbar-with-tab-larger .mdui-drawer {
+    top: 72px;
+  }
+  .mdui-appbar-with-toolbar.mdui-appbar-with-tab .mdui-drawer {
+    top: 112px;
+  }
+  .mdui-appbar-with-toolbar.mdui-appbar-with-tab-larger .mdui-drawer {
+    top: 136px;
+  }
+}
+/* 抽屉栏不是透明时添加阴影 */
+.mdui-drawer[class*="mdui-color-"]:not(.mdui-color-transparent) {
+  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12);
+}
+/* 抽屉栏 100% 高度，覆盖在导航栏上面 */
+.mdui-drawer-full-height {
+  top: 0 !important;
+}
